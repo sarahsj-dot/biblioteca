@@ -1,17 +1,22 @@
 package com.example.library.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "tb_carteira")
 @Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class CarteiraBiblioteca {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long numeroCarteira;
@@ -24,5 +29,4 @@ public class CarteiraBiblioteca {
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id", nullable = false, unique = true)
     private Usuario usuario;
-
 }

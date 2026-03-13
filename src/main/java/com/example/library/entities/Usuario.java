@@ -1,16 +1,23 @@
 package com.example.library.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "tb_usuario")
+@Data                   // getters, setters, toString, equals, hashCode
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
